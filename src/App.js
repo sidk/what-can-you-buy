@@ -73,7 +73,7 @@ function App() {
         <strong>${savings}</strong>
       </p>
       <p>
-        What the rest of our expenses can be assuming a 4% SWR:{" "}
+        4% SWR on remaining liquid assets:{" "}
         <strong>
           ${(0.04 * (totalAssets - higherRange)).toFixed(2)} to {" $"}
           {(0.04 * (totalAssets - lowerRange)).toFixed(2)}
