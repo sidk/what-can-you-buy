@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  padding-top: 400px
+}
+
+input[type="range"]{
+   width: 300px; 
 }
 
 .App-logo {
