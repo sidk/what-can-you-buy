@@ -33,26 +33,51 @@ function App() {
   const [savings, setSavings] = React.useState(0);
   const [lowerRange, setLowerRange] = React.useState(0);
   const [higherRange, setHigherRange] = React.useState(0);
+  const [currentRent, setCurrentRent] = React.useState(25000);
+  const [totalAssets, setTotalAssets] = React.useState(1000000);
 
   const calculateRange = (e) => {
     setSavings(e.target.value);
-    setLowerRange(((25000 - e.target.value) * 100) / 5);
-    setHigherRange(((25000 - e.target.value) * 100) / 3);
+    setLowerRange(((currentRent - e.target.value) * 100) / 5);
+    setHigherRange(((currentRent - e.target.value) * 100) / 3);
   };
 
   return (
     <div className="App">
+      <div>
+        <label>Total Assets</label>
+        <input
+          type="number"
+          value={totalAssets}
+          onChange={(e) => setTotalAssets(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>Current Annual Rent</label>
+        <input
+          type="number"
+          value={currentRent}
+          onChange={(e) => setCurrentRent(e.target.value)}
+        />
+      </div>
       <input
         type="range"
         value={savings}
         onChange={calculateRange}
         onInput={calculateRange}
         min="0"
-        max="25000"
+        max={currentRent}
       />
       <p>
         Savings on the amount of rent we currently pay:{" "}
         <strong>${savings}</strong>
+      </p>
+      <p>
+        What the rest of our expenses can be assuming a 4% SWR:{" "}
+        <strong>
+          ${(0.04 * (totalAssets - higherRange)).toFixed(2)} to {" $"}
+          {(0.04 * (totalAssets - lowerRange)).toFixed(2)}
+        </strong>
       </p>
       <div>
         <h2>
@@ -62,13 +87,13 @@ function App() {
         <table data-role="table">
           <thead>
             <tr>
-              <th>City </th>
+              <th>City</th>
               <th>Average House Price</th>
             </tr>
           </thead>
           <tbody>
             {HOUSE_PRICES.filter((hp) => hp.price <= higherRange).map((hp) => (
-              <tr>
+              <tr key={hp.region}>
                 <td>{hp.region}</td>
                 <td>{hp.price}</td>
               </tr>
