@@ -167,9 +167,6 @@ function App() {
             </tr>
           </tbody>
         </table>
-        <button class="excess_show_action" data-target="article_table">
-          Click to Expand
-        </button>
 
         <p>
           The lower range assumes an opportunity cost of 1%, and the higher one
