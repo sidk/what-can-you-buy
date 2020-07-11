@@ -31,6 +31,9 @@ function App() {
           ${(lowerRange / 1000).toFixed(2)}k {"<"} Your House Price {"<"} $
           {(higherRange / 1000).toFixed(2)}k
         </h2>
+        <h4>
+          <a href="https://www.worldatlas.com/articles/average-home-prices-across-canada.html">Learn about average home prices across Canada</a>
+        </h4>
         <p>
           The lower range assumes an opportunity cost of 1%, and the higher one
           assumes opportunity cost of 3%. Most likely the true opportunity cost
