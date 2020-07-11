@@ -1,6 +1,34 @@
 import React from "react";
 import "./App.css";
 
+const HOUSE_PRICES = [
+  { region: "Toronto, Ontario", price: 921000 },
+  { region: "Vancouver, British Columbia", price: 878242 },
+  { region: "Victoria, British Columbia", price: 763517 },
+  { region: "Kitchener-Cambridge-Waterloo, Ontario", price: 583144 },
+  { region: "Calgary, Alberta", price: 570084 },
+  { region: "Hamilton, Ontario", price: 535520 },
+  { region: "Oshawa, Ontario", price: 480700 },
+  { region: "Saskatoon, Saskatchewan", price: 385580 },
+  { region: "Edmonton, Alberta", price: 378247 },
+  { region: "Ottawa, Ontario", price: 373200 },
+  { region: "Montreal, Quebec", price: 349000 },
+  { region: "London, Ontario", price: 344815 },
+  { region: "Kingston, Ontario", price: 327507 },
+  { region: "St. Catharines-Niagara, Ontario", price: 323179 },
+  { region: "Regina, Saskatchewan", price: 316990 },
+  { region: "Halifax, Nova Scotia", price: 306944 },
+  { region: "St. John's, Newfoundland", price: 306279 },
+  { region: "Winnipeg, Manitoba", price: 300011 },
+  { region: "Quebec, Quebec", price: 266578 },
+  { region: "Greater Sudbury, Ontario", price: 254000 },
+  { region: "Windsor, Ontario", price: 247000 },
+  { region: "Thunder Bay, Ontario", price: 237500 },
+  { region: "Saguenay, Quebec", price: 196000 },
+  { region: "Saint John, New Brunswick", price: 187519 },
+  { region: "Trois-Rivieres, Quebec", price: 169500 },
+];
+
 function App() {
   const [savings, setSavings] = React.useState(0);
   const [lowerRange, setLowerRange] = React.useState(0);
@@ -34,137 +62,17 @@ function App() {
         <table data-role="table">
           <thead>
             <tr>
-              <th>Rank</th>
               <th>City </th>
               <th>Average House Price</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>Toronto, Ontario</td>
-              <td>921,000</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>Vancouver, British Columbia</td>
-              <td>878,242</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>Victoria, British Columbia</td>
-              <td>763,517</td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>Kitchener-Cambridge-Waterloo, Ontario</td>
-              <td>583,144</td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>Calgary, Alberta</td>
-              <td>570,084</td>
-            </tr>
-            <tr>
-              <td>6</td>
-              <td>Hamilton, Ontario</td>
-              <td>535,520</td>
-            </tr>
-            <tr>
-              <td>7</td>
-              <td>Oshawa, Ontario</td>
-              <td>480,700</td>
-            </tr>
-            <tr>
-              <td>8</td>
-              <td>Saskatoon, Saskatchewan</td>
-              <td>385,580</td>
-            </tr>
-            <tr>
-              <td>9</td>
-              <td>Edmonton, Alberta</td>
-              <td>378,247</td>
-            </tr>
-            <tr>
-              <td>10</td>
-              <td>Ottawa, Ontario</td>
-              <td>373,200</td>
-            </tr>
-            <tr>
-              <td>11</td>
-              <td>Montreal, Quebec</td>
-              <td>349,000</td>
-            </tr>
-            <tr>
-              <td>12</td>
-              <td>London, Ontario</td>
-              <td>344,815</td>
-            </tr>
-            <tr>
-              <td>13</td>
-              <td>Kingston, Ontario</td>
-              <td>327,507</td>
-            </tr>
-            <tr>
-              <td>14</td>
-              <td>St. Catharines-Niagara, Ontario</td>
-              <td>323,179</td>
-            </tr>
-            <tr>
-              <td>15</td>
-              <td>Regina, Saskatchewan</td>
-              <td>316,990</td>
-            </tr>
-            <tr>
-              <td>16</td>
-              <td>Halifax, Nova Scotia</td>
-              <td>306,944</td>
-            </tr>
-            <tr>
-              <td>17</td>
-              <td>St. John's, Newfoundland</td>
-              <td>306,279</td>
-            </tr>
-            <tr>
-              <td>18</td>
-              <td>Winnipeg, Manitoba</td>
-              <td>300,011</td>
-            </tr>
-            <tr>
-              <td>19</td>
-              <td>Quebec, Quebec</td>
-              <td>266,578</td>
-            </tr>
-            <tr>
-              <td>20</td>
-              <td>Greater Sudbury, Ontario</td>
-              <td>254,000</td>
-            </tr>
-            <tr>
-              <td>21</td>
-              <td>Windsor, Ontario</td>
-              <td>247,000</td>
-            </tr>
-            <tr>
-              <td>22</td>
-              <td>Thunder Bay, Ontario</td>
-              <td>237,500</td>
-            </tr>
-            <tr>
-              <td>23</td>
-              <td>Saguenay, Quebec</td>
-              <td>196,000</td>
-            </tr>
-            <tr>
-              <td>24</td>
-              <td>Saint John, New Brunswick</td>
-              <td>187,519</td>
-            </tr>
-            <tr>
-              <td>25</td>
-              <td>Trois-Rivieres, Quebec</td>
-              <td>169,500</td>
-            </tr>
+            {HOUSE_PRICES.filter((hp) => hp.price <= higherRange).map((hp) => (
+              <tr>
+                <td>{hp.region}</td>
+                <td>{hp.price}</td>
+              </tr>
+            ))}
           </tbody>
         </table>
 
