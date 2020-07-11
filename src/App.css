@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  padding-top: 400px
+  padding-top: 400px;
+}
+table {
+  margin: auto;
 }
 
 input[type="range"]{
