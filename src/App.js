@@ -36,6 +36,7 @@ function App() {
   const [midRange, setMidRange] = React.useState(0);
   const [currentRent, setCurrentRent] = React.useState(25000);
   const [totalAssets, setTotalAssets] = React.useState(1000000);
+  const [swr, setSwr] = React.useState(4);
 
   const calculateRange = (e) => {
     setSavings(e.target.value);
@@ -70,22 +71,32 @@ function App() {
         min="0"
         max={currentRent}
       />
+      <div>
+        <label>Safe Withdrawal Rate</label>
+        <input
+          type="number"
+          value={swr}
+          onChange={(e) => setSwr(e.target.value)}
+        />
+      </div>
       <p>
         Savings on the amount of rent we currently pay:{" "}
         <strong>${savings}</strong>
       </p>
+
       <p>
-        4% SWR on remaining liquid assets:{" "}
+        {swr}% SWR on remaining liquid assets:{" "}
         <strong>
-          ${(0.04 * (totalAssets - higherRange)).toFixed(2)} to {" $"}
-          {(0.04 * (totalAssets - lowerRange)).toFixed(2)}
+          ${((swr / 100) * (totalAssets - higherRange)).toFixed(2)} to {" $"}
+          {((swr / 100) * (totalAssets - midRange)).toFixed(2)} to {" $"}
+          {((swr / 100) * (totalAssets - lowerRange)).toFixed(2)}
         </strong>
       </p>
       <p>
         Available to spend
         <strong>
           $
-          {(0.04 * (totalAssets - midRange)).toFixed(2) -
+          {((swr / 100) * (totalAssets - midRange)).toFixed(2) -
             (0.02 * midRange).toFixed(2)}
         </strong>
       </p>
