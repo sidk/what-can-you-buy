@@ -81,6 +81,14 @@ function App() {
           {(0.04 * (totalAssets - lowerRange)).toFixed(2)}
         </strong>
       </p>
+      <p>
+        Available to spend
+        <strong>
+          $
+          {(0.04 * (totalAssets - midRange)).toFixed(2) -
+            (0.02 * midRange).toFixed(2)}
+        </strong>
+      </p>
       <div>
         <h2>
           ${(lowerRange / 1000).toFixed(2)}k {"<"} Your House Price {"<"} $
