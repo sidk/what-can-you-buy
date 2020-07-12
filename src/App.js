@@ -33,6 +33,7 @@ function App() {
   const [savings, setSavings] = React.useState(0);
   const [lowerRange, setLowerRange] = React.useState(0);
   const [higherRange, setHigherRange] = React.useState(0);
+  const [midRange, setMidRange] = React.useState(0);
   const [currentRent, setCurrentRent] = React.useState(25000);
   const [totalAssets, setTotalAssets] = React.useState(1000000);
 
@@ -40,6 +41,7 @@ function App() {
     setSavings(e.target.value);
     setLowerRange(((currentRent - e.target.value) * 100) / 5);
     setHigherRange(((currentRent - e.target.value) * 100) / 3);
+    setMidRange(((currentRent - e.target.value) * 100) / 4);
   };
 
   return (
@@ -84,6 +86,8 @@ function App() {
           ${(lowerRange / 1000).toFixed(2)}k {"<"} Your House Price {"<"} $
           {(higherRange / 1000).toFixed(2)}k
         </h2>
+        <h2>Your House Price Mid Range: ${(midRange / 1000).toFixed(2)}k</h2>
+
         <table data-role="table">
           <thead>
             <tr>
